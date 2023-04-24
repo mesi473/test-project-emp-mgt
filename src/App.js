@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import Login from './views/login/Login';
+import { Route, Routes } from 'react-router-dom'
+import ProtectedRoute from './auth/ProtectedRoute';
+import AdminDashboard from './views/dashboard/admin/AdminDashboard';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actionTypes from './state/actionTypes';
+import { useNavigate } from "react-router-dom";
+import Employees from './views/dashboard/admin/sub components/Employees';
+
 
 function App() {
+  const dispatch = useDispatch()
+  const accessToken = localStorage.getItem('token')
+  const email = localStorage.getItem('email')
+  const token = useSelector((state) => state.AccountReducer.token);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token && email) {
+      dispatch({
+        type: actionTypes.LOGIN_SUCCESS,
+        payload: { email: email, accessToken: accessToken }
+      })
+      navigate('/dashboard/admin/default')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className='w-full h-screen'>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/dashboard' element={<ProtectedRoute />}>
+          <Route path='/dashboard/admin/default' element={<AdminDashboard />} />
+        </Route>
+        <Route path='/dashboard' element={<ProtectedRoute />}>
+          <Route path='/dashboard/admin/employees' element={<Employees />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
