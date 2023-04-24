@@ -50,6 +50,9 @@ export const LoginWithGoogleAction = () => async (dispatch) => {
           type: actionTypes.LOGIN_SUCCESS,
           payload: {
             user: user,
+            displayName:user.reloadUserInfo.displayName,
+            photoUrl:user.reloadUserInfo.photoUrl
+
           },
         });
         localStorage.setItem("token", user.accessToken);
