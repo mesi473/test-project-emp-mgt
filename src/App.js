@@ -32,6 +32,7 @@ function App() {
     <div className='w-full h-screen'>
       <Routes>
         <Route path='/login' element={<Login />} />
+        <Route path='/' element={<Login/>}/>
         <Route path='/dashboard' element={<ProtectedRoute />}>
           <Route path='/dashboard/admin/default' element={<AdminDashboard />} />
         </Route>

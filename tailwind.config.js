@@ -7,4 +7,10 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  screens: {
+    'tablet': '440px',
+    'laptop': '1024px',
+
+    'desktop': '1280px',
+  },
 }
