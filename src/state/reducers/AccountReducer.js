@@ -8,6 +8,8 @@ const initialState = {
     error_code:null,
     message: null,
     loading:false,
+    displayName:'',
+    photoUrl:'',
 }
 export const AccountReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -17,6 +19,8 @@ export const AccountReducer = (state = initialState, action) => {
                     token:action.payload?.user?.accessToken,
                     email:action.payload?.user?.email,
                     password:action.payload?.password,
+                    displayName:action.payload?.displayName,
+                    photoUrl:action.payload?.photoUrl,
                     loading:false,
                 }
         case actionTypes.LOGIN_START:

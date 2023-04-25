@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9e718918.css",
+    "main.js": "/static/js/main.a7747e13.js",
+    "static/js/787.6e6ddcf2.chunk.js": "/static/js/787.6e6ddcf2.chunk.js",
+    "static/media/towfiqu-barbhuiya-FnA5pAzqhMM-unsplash.jpg": "/static/media/towfiqu-barbhuiya-FnA5pAzqhMM-unsplash.4a1a395b1f63942d2065.jpg",
+    "index.html": "/index.html",
+    "main.9e718918.css.map": "/static/css/main.9e718918.css.map",
+    "main.a7747e13.js.map": "/static/js/main.a7747e13.js.map",
+    "787.6e6ddcf2.chunk.js.map": "/static/js/787.6e6ddcf2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e718918.css",
+    "static/js/main.a7747e13.js"
+  ]
+}
